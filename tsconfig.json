@@ -5,7 +5,7 @@
     },
     "files": [
         "typings/index.d.ts",
-        "quadtree.ts",
+        "src/quadtree.ts",
         "spec/unit/quadSpec.ts"
     ]
 }
