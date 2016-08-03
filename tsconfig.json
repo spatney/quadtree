@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "outFile": "spec/unit/qSpec.js"
+    },
+    "files": [
+        "typings/index.d.ts",
+        "quadtree.ts",
+        "spec/unit/quadSpec.ts"
+    ]
+}

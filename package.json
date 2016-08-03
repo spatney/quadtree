@@ -1,0 +1,29 @@
+{
+  "name": "viz-quadtree",
+  "version": "1.0.0",
+  "description": "Quadtree implmentation in Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run tsc && npm run jasmine",
+    "jasmine": "node spec/jasmine-runner.js",
+    "tsc": "node node_modules/typescript/bin/tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spatney/quadtree.git"
+  },
+  "keywords": [
+    "quadtree"
+  ],
+  "author": "Sachin Patney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spatney/quadtree/issues"
+  },
+  "homepage": "https://github.com/spatney/quadtree#readme",
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jasmine-spec-reporter": "^2.5.0",
+    "typescript": "^1.8.10"
+  }
+}
