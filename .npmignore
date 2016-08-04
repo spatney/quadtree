@@ -1,4 +1,5 @@
 .travis.yml
+.gitattributes
 appveyor.yml
 tsconfig.json
 typings.json
