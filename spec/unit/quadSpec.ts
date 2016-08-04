@@ -1,7 +1,7 @@
 namespace viz.tests {
     describe('Quadtree tests', () => {
-        function createQuadTree(params: QuadTreeNode = {x: 0,y: 0,width: 1000, height: 1000}) {
-            return new Quadtree(params);
+        function createQuadTree(dims: QuadTreeNode = {x: 0,y: 0,width: 1000, height: 1000}) {
+            return new Quadtree(dims);
         }
 
         function createRandomQuadTreeNode(dim: number = 1000,hw: number = 10) {
@@ -14,27 +14,28 @@ namespace viz.tests {
 
         it('insert -- retrive one node', () => {
             let quadTree = createQuadTree();
-            quadTree.insert({x:10,y:300, width: 20, height: 20});
+            quadTree.insert(createRandomQuadTreeNode());
             let nodes = quadTree.retrieve(createRandomQuadTreeNode());
             expect(nodes.length).toBe(1);
         });
 
         it('insert many random nodes -- retrive should be less than total', () => {
             let quadTree = createQuadTree();
-            for(let i=0; i<100; i++){
+            let count = 100;
+            for(let i=0; i<count; i++){
                 quadTree.insert(createRandomQuadTreeNode());
             }
             let nodes = quadTree.retrieve(createRandomQuadTreeNode());
-            expect(nodes.length).toBeLessThan(100);
+            expect(nodes.length).toBeLessThan(count);
         });
 
         it('insert many random nodes -- best match should be same as full search', () => {
             let quadTree = createQuadTree();
-            let arr = [];
+            let allNodes = [];
             for(let i=0; i<100; i++){
                 let node = createRandomQuadTreeNode();
                 quadTree.insert(node);
-                arr.push(node);
+                allNodes.push(node);
             }
 
             let randomNode = createRandomQuadTreeNode();
@@ -46,15 +47,15 @@ namespace viz.tests {
             let minDistF = 1000000;
 
             for(let node of nodes){
-                let d = Math.sqrt(Math.pow(randomNode.x-node.x,2) + Math.pow(randomNode.y-node.y,2));
+                let d = Math.sqrt(Math.pow(randomNode.x-node.x,2) + Math.pow(randomNode.y-node.y,2)) | 0;
                 if(d<minDistQ){
                     minDistQ = d;
                     bestMatchQ = node;
                 }
             }
 
-            for(let node of arr){
-                let d = Math.sqrt(Math.pow(randomNode.x-node.x,2) + Math.pow(randomNode.y-node.y,2));
+            for(let node of allNodes){
+                let d = Math.sqrt(Math.pow(randomNode.x-node.x,2) + Math.pow(randomNode.y-node.y,2)) | 0;
                 if(d<minDistF){
                     minDistF = d;
                     bestMatchF = node;
@@ -63,8 +64,8 @@ namespace viz.tests {
 
             expect(bestMatchF).toBeDefined();
             expect(bestMatchQ).toBeDefined();
-            expect(Math.sqrt(Math.pow(randomNode.x-bestMatchF.x,2) + Math.pow(randomNode.y-bestMatchF.y,2)))
-                .toBe(Math.sqrt(Math.pow(randomNode.x-bestMatchQ.x,2) + Math.pow(randomNode.y-bestMatchQ.y,2)));
+            expect(Math.sqrt(Math.pow(randomNode.x-bestMatchF.x,2) + Math.pow(randomNode.y-bestMatchF.y,2)) | 0)
+                .toBe(Math.sqrt(Math.pow(randomNode.x-bestMatchQ.x,2) + Math.pow(randomNode.y-bestMatchQ.y,2)) | 0);
         });
     })
 }
