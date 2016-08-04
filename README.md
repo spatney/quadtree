@@ -1,3 +1,5 @@
+[![Npm Version](https://img.shields.io/npm/v/viz-quadtree.svg?style=flat)](https://www.npmjs.com/package/powerbi-visuals-tools)
+[![Npm Downloads](https://img.shields.io/npm/dm/viz-quadtree.svg?style=flat)](https://www.npmjs.com/package/powerbi-visuals-tools)
 [![Build Status](https://travis-ci.org/spatney/quadtree.svg?branch=master)](https://travis-ci.org/spatney/quadtree)
 [![Build status](https://ci.appveyor.com/api/projects/status/rxq7sipm1knv6o0p?svg=true)](https://ci.appveyor.com/project/spatney/powerbi-visuals-tools)
 #Quad Tree
