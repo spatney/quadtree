@@ -63,7 +63,8 @@ namespace viz.tests {
 
             expect(bestMatchF).toBeDefined();
             expect(bestMatchQ).toBeDefined();
-            expect(bestMatchF).toBe(bestMatchQ);
+            expect(Math.sqrt(Math.pow(randomNode.x-bestMatchF.x,2) + Math.pow(randomNode.y-bestMatchF.y,2)))
+                .toBe(Math.sqrt(Math.pow(randomNode.x-bestMatchQ.x,2) + Math.pow(randomNode.y-bestMatchQ.y,2)));
         });
     })
 }
