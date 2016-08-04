@@ -1,0 +1,6 @@
+.travis.yml
+appveyor.yml
+tsconfig.json
+typings.json
+typings/
+spec/
