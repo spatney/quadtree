@@ -1,6 +1,6 @@
 {
   "name": "viz-quadtree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Quadtree implmentation in Typescript",
   "main": "index.js",
   "scripts": {
